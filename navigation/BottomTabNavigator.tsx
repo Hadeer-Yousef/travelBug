@@ -22,15 +22,9 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="SearchTab"
+      initialRouteName="FeedTab"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
-      <BottomTab.Screen
-        name="SearchTab"
-        component={SearchTabNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
-      />
+
       <BottomTab.Screen
         name="FeedTab"
         component={FeedTabNavigator}
@@ -41,6 +35,13 @@ export default function BottomTabNavigator() {
       <BottomTab.Screen
         name="ProfileTab"
         component={ProfileTabNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="SearchTab"
+        component={SearchTabNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}

@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
 import { createStore, applyMiddleware } from 'redux'
 import { user } from './user';
+import { posts } from './posts';
+
 import thunkMiddleware from 'redux-thunk'
 
 const rootReducer = combineReducers({
-    user
+    user,
+    posts
 })
 
 const middleware = applyMiddleware(thunkMiddleware)

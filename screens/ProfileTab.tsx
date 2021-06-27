@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { Entypo } from '@expo/vector-icons'; 
 import ImageUtils from '../Utils/ImageUtils';
 import firebase from 'firebase';
-import { updateImage } from '../store/user';
+import { updateImage, updateUserImage } from '../store/user';
 
 function ProfileTab(props: any) {
   let uploadTask: any = undefined;
@@ -44,7 +44,7 @@ function ProfileTab(props: any) {
   const uploadImage = async (modifiedImage: any) => {
     const response = await fetch(modifiedImage.uri);
     const blob = await response.blob()
-    let ref = Firebase.storage().ref().child(`profile/${props.user.uid}/profile.jpg`)
+    let ref = Firebase.storage().ref().child(`profile/${props.user.id}/profile.jpg`)
 
     uploadTask = ref.put(blob)
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, 
@@ -135,7 +135,7 @@ const mapState = (state: any) => {
 
 const mapDispatch = (dispatch: any) => {
   return {
-    updateImage: (image: string) => dispatch(updateImage(image)),
+    updateImage: (image: string) => dispatch(updateUserImage(image)),
   }
 }
 export default connect(mapState, mapDispatch)(ProfileTab)

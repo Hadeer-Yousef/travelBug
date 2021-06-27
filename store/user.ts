@@ -68,6 +68,23 @@ export const getUser = (uid: string) => {
     }
 }
 
+export const updateUserImage = (image: string) => {
+    return async (dispatch: any, getState: any) => {
+        const { id } = getState().user
+
+        await db.collection('users')
+            .doc(id)
+            .update({
+                image
+            })
+            .catch(error => {
+                throw error
+            })
+
+        dispatch({ type: UPDATE_IMAGE, payload: image })
+    }
+}
+
 export const signup = () => {
     return async (dispatch: any, getState: any) => {
         const { email, password, username } = getState().user
