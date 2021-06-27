@@ -6,7 +6,7 @@ import Firebase from '../config/Firebase';
 import { useNavigation } from '@react-navigation/native';
 import { connect } from 'react-redux';
 
-function ProfileTab(props: any) {
+function AddPost(props: any) {
   const navigation = useNavigation()
   return (
     <View style={styles.container}>
@@ -25,14 +25,7 @@ function ProfileTab(props: any) {
       }}/>
       <Text style={{ marginLeft: 30 }}>{props.user.username}</Text>
       </View>
-      <Text>I am on Profile</Text>
-      <TouchableOpacity onPress={() => {
-        Firebase.auth().signOut().catch((error) => {
-          console.log(error)
-        });
-      }}>
-        <Text>Logout</Text>
-      </TouchableOpacity>
+      <Text>I am on addpost</Text>
     </View>
   );
 }
@@ -47,7 +40,7 @@ const mapDispatch = (dispatch: any) => {
   return {
   }
 }
-export default connect(mapState, mapDispatch)(ProfileTab)
+export default connect(mapState, mapDispatch)(AddPost)
 
 const styles = StyleSheet.create({
   container: {

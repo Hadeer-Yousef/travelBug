@@ -33,6 +33,9 @@ const Login = (props: any) => {
                 onChangeText={email => {
                     setEmail(email)
                 }}
+                autoCapitalize={"none"}
+                autoCorrect={false}
+                autoCompleteType={"off"}
                 placeholder='Email'
             />
             <TextInput
