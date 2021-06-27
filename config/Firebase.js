@@ -7,6 +7,7 @@ import {
   PROJECT_ID,
   MESSAGE_SENDER_ID,
   APP_ID,
+  SOTRAGE_BUCKET,
 } from "@env";
 
 const firebaseConfig = {
@@ -14,7 +15,7 @@ const firebaseConfig = {
   authDomain: AUTH_DOMAIN,
   databaseURL: DATABASE_URL,
   projectId: PROJECT_ID,
-  storageBucket: "",
+  storageBucket: SOTRAGE_BUCKET,
   messagingSenderId: MESSAGE_SENDER_ID,
   appId: APP_ID,
 };
