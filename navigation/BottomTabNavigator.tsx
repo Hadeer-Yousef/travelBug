@@ -7,12 +7,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import SearchTab from '../screens/SearchTab';
 import FeedTab from '../screens/FeedTab';
 import ProfileTab from '../screens/ProfileTab';
+import AddPost from '../screens/AddPost';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -34,7 +35,7 @@ export default function BottomTabNavigator() {
         name="FeedTab"
         component={FeedTabNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome5 name="home" size={24} color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -79,6 +80,11 @@ function FeedTabNavigator() {
         name="TabTwoScreen"
         component={FeedTab}
         options={{ headerTitle: 'Feed' }}
+      />
+      <TabTwoStack.Screen
+        name="NewPost"
+        component={AddPost}
+        options={{ headerTitle: 'New Post' }}
       />
     </TabTwoStack.Navigator>
   );
